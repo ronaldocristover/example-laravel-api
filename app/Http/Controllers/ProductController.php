@@ -45,7 +45,21 @@ class ProductController extends Controller
         return $this->wrapper('NOT OK', [], 400, 'Product Not Found');
        }
 
-       $updateProduct = Product::where('id', $id)->update($request->all());
+       $updateProduct = Product::find($id);
+       if ($request->has('name')) {
+         $updateProduct->name = $request->get('name');
+       }
+
+       if ($request->has('price')) {
+         $updateProduct->name = $request->get('price');
+       }
+
+       if ($request->has('imageurl')) {
+         $updateProduct->name = $request->get('imageurl');
+       }
+
+       $updateProduct->save();
+
        $updatedProduct = Product::where('id', $id)->first();
         if($updateProduct){
             return $this->wrapper('OK', $updatedProduct, 201);
