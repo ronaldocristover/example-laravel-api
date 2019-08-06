@@ -8,9 +8,11 @@ class ProductController extends Controller
 {
   public function __construct()
   {
-            $this->middleware('auth');
+  	// melakukan pengecekan Authorization setiap melakukan CALL API
+    $this->middleware('auth');
   }
   
+  // Call All Product
    public function index()
    {
        $data = Product::get();
@@ -20,6 +22,14 @@ class ProductController extends Controller
        return $this->wrapper('NOT OK', [], 400);
    }
 
+   
+   /**
+   STORE PRODUCT DATA 
+   Param: 
+   Name : String (max 200)
+   Price : Integer 
+   ImageURL : String (max 200)
+   **/
    public function store(Request $request)
    {
         $name = $request->get('name', '');
@@ -38,6 +48,14 @@ class ProductController extends Controller
         return $this->wrapper('NOT OK', [], 400, 'Error');
    }
 
+	/**
+   UPDATE PRODUCT DATA 
+   Param:
+   id : Integer (From URL) 
+   Name : String (max 200)
+   Price : Integer 
+   ImageURL : String (max 200)
+   **/
    public function update(Request $request, $id)
    {
        $data = Product::where('id', $id)->first();
@@ -67,6 +85,11 @@ class ProductController extends Controller
         return $this->wrapper('NOT OK', [], 400, 'Error');
    }
 
+   /**
+   REMOVE PRODUCT DATA 
+   Param:
+   id : Integer (Product ID From URL) 
+   **/
    public function remove($id)
    {
        $data = Product::where('id', $id)->first();
@@ -83,6 +106,11 @@ class ProductController extends Controller
         return $this->wrapper('NOT OK', [], 400, 'Error'); 
    }
 
+   /**
+   SHOW PRODUCT DATA 
+   Param:
+   id : Integer (Product ID From URL) 
+   **/
    public function show($id)
    {
        $data = Product::where('id', $id)->first();
