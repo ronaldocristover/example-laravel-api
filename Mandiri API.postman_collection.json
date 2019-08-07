@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "340c473b-4af1-4e3e-a0d4-e2eb6057e180",
+		"name": "Mandiri API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CRUD V1",
+			"item": [
+				{
+					"name": "Show Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "OEtHTVNoUVR3UHpkTThMcWg3dDhldnN5bllkNVN0YXQybElJeUlZQw==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/v1/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "NlVPVGZ2YmtNREtRdEYzZFU3b01ldDB4Tnc0Y3VxbTBZaGlycWM0Nw==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"polygon xtrada x4\",\n  \"price\": \"2180\",\n  \"imageurl\": \"https://polygoneeimages.s3.amazonaws.com/images/19342/xtrada_5_p.jpg\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/v1/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "OEtHTVNoUVR3UHpkTThMcWg3dDhldnN5bllkNVN0YXQybElJeUlZQw==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"polygon xtrada Zx\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/v1/products/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"products",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Data By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "OEtHTVNoUVR3UHpkTThMcWg3dDhldnN5bllkNVN0YXQybElJeUlZQw==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/v1/products/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"products",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Data",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "OEtHTVNoUVR3UHpkTThMcWg3dDhldnN5bllkNVN0YXQybElJeUlZQw==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"polygon xtrada Zx\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/v1/products/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"products",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"bot@example.com\",\n  \"password\": \"bot\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"bot\",\n  \"email\": \"bot@example.com\",\n  \"password\": \"bot\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
